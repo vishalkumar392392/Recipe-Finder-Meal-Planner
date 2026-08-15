@@ -1,0 +1,20 @@
+{
+  "name": "recipe-finder-meal-planner",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=@vishalkumar392/web",
+    "build:ui": "npm --prefix packages/recipe-ui run build",
+    "build": "npm run build:ui && npm run build --workspace=@vishalkumar392/web",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "npm run test --workspaces --if-present",
+    "publish:ui": "npm run build:ui && npm publish --prefix packages/recipe-ui --access public"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "prettier-plugin-svelte": "^4.1.1"
+  }
+}

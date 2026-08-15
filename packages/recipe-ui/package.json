@@ -1,0 +1,43 @@
+{
+  "name": "@vishalkumar392/recipe-ui",
+  "version": "0.1.0",
+  "description": "Reusable web components for Recipe Finder & Meal Planner",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "files": [
+    "dist/"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/components.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./loader": {
+      "types": "./dist/loader/index.d.ts",
+      "import": "./dist/loader/index.js",
+      "require": "./dist/loader/index.cjs.js"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js"
+    }
+  },
+  "scripts": {
+    "build": "stencil build",
+    "start": "stencil build --dev --watch",
+    "test": "stencil test --spec"
+  },
+  "dependencies": {
+    "@stencil/core": "^4.31.0"
+  },
+  "devDependencies": {
+    "@stencil/sass": "^3.2.2"
+  }
+}
