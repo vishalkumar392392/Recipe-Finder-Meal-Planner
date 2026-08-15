@@ -32,7 +32,7 @@ The library's `recipe-card` and `planner-day` components receive values through 
 
 ## Deploy
 
-Import the repository into Vercel using the repository root directory. Set the build command to `npm run build`; the output is detected by the SvelteKit Vercel adapter. No application environment variables are necessary.
+Import the repository into Vercel and set its Root Directory to `apps/web`. Set the build command to `npm run build`; the project uses the SvelteKit Vercel adapter with the Node.js 20 runtime. No application environment variables are necessary.
 
 ## Assumptions
 
