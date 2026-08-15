@@ -26,7 +26,7 @@ npm login
 npm run publish:ui
 ```
 
-The app is configured to consume release version `^0.1.0` from npm, rather than the local library source. Its published package link is `https://www.npmjs.com/package/@vishalkumar392/recipe-ui`.
+The app is configured to consume release version `^0.1.0` from npm, rather than the local library source. Its published package link is [@vishalkumar392/recipe-ui](https://www.npmjs.com/package/@vishalkumar392/recipe-ui).
 
 The library's `recipe-card` and `planner-day` components receive values through properties, emit composed custom events consumed by Svelte, and expose slots for application-provided content.
 
@@ -34,9 +34,12 @@ The library's `recipe-card` and `planner-day` components receive values through 
 
 Import the repository into Vercel and set its Root Directory to `apps/web`. Set the build command to `npm run build`; the project uses the SvelteKit Vercel adapter with the Node.js 20 runtime. No application environment variables are necessary.
 
+Live application: [https://recipe-finder-meal-planner-web.vercel.app](https://recipe-finder-meal-planner-web.vercel.app)
+
+GitHub repository: [vishalkumar392392/Recipe-Finder-Meal-Planner](https://github.com/vishalkumar392392/Recipe-Finder-Meal-Planner)
+
 ## Assumptions
 
 - TheMealDB provides keyword search, category browsing, and cuisine filtering; nutrition and arbitrary multi-filter search are not available.
 - Each day has one planned meal; selecting a new one replaces the earlier assignment.
 - User-created recipes are available in recipe detail, favorites, and the planner.
-- Repository and deployment URLs are intentionally left for the project owner to add after publishing/deployment.
