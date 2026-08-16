@@ -16,15 +16,13 @@ describe('validRecipe', () => {
   };
 
   it('requires a non-blank title', () => {
-    expect(validRecipe({ ...validRecipeInput, title: '  ' })).toBe(
-      'Please add a recipe title.',
-    );
+    expect(validRecipe({ ...validRecipeInput, title: '  ' })).toBe('Please add a recipe title.');
   });
 
   it('requires an ingredient and an instruction with content', () => {
-    expect(
-      validRecipe({ ...validRecipeInput, ingredients: [{ item: '  ' }] }),
-    ).toBe('Add at least one ingredient.');
+    expect(validRecipe({ ...validRecipeInput, ingredients: [{ item: '  ' }] })).toBe(
+      'Add at least one ingredient.',
+    );
     expect(validRecipe({ ...validRecipeInput, instructions: ['  '] })).toBe(
       'Add at least one instruction.',
     );

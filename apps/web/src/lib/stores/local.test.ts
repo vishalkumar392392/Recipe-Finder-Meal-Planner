@@ -47,9 +47,11 @@ describe('planner store', () => {
 
   it('hydrates browser state from local storage and persists changes', async () => {
     const storage = {
-      getItem: vi.fn().mockReturnValue(
-        JSON.stringify({ recipes: [recipe], favorites: 'invalid', plan: { Monday: recipe.id } }),
-      ),
+      getItem: vi
+        .fn()
+        .mockReturnValue(
+          JSON.stringify({ recipes: [recipe], favorites: 'invalid', plan: { Monday: recipe.id } }),
+        ),
       setItem: vi.fn(),
     };
     vi.stubGlobal('localStorage', storage);

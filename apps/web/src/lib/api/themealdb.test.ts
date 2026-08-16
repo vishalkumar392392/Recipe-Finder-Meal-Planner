@@ -1,11 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import {
-  browseCategory,
-  getAreas,
-  getCategories,
-  getMeal,
-  searchMeals,
-} from './themealdb';
+import { browseCategory, getAreas, getCategories, getMeal, searchMeals } from './themealdb';
 
 const meal = {
   idMeal: '52772',
@@ -52,9 +46,7 @@ describe('TheMealDB client', () => {
         instructions: ['Cook chicken.', 'Serve with rice.'],
       },
     ]);
-    expect(fetchMock).toHaveBeenCalledWith(
-      '/api/meals?resource=search&value=chicken+%26+rice',
-    );
+    expect(fetchMock).toHaveBeenCalledWith('/api/meals?resource=search&value=chicken+%26+rice');
   });
 
   it('returns null when a requested meal is not found', async () => {
