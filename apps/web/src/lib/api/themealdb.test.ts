@@ -1,5 +1,11 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { getCategories, getMeal, searchMeals } from './themealdb';
+import {
+  browseCategory,
+  getAreas,
+  getCategories,
+  getMeal,
+  searchMeals,
+} from './themealdb';
 
 const meal = {
   idMeal: '52772',
@@ -65,5 +71,31 @@ describe('TheMealDB client', () => {
     await expect(searchMeals('pasta')).rejects.toThrow(
       'The recipe service is unavailable. Please try again.',
     );
+  });
+
+  it('browses categories and returns the available areas', async () => {
+    const fetchMock = mockFetch({ meals: [meal] });
+    await expect(browseCategory('Chicken')).resolves.toHaveLength(1);
+    expect(fetchMock).toHaveBeenCalledWith('/api/meals?resource=category&value=Chicken');
+
+    mockFetch({ meals: [{ strArea: 'Italian' }, { strArea: null }] });
+    await expect(getAreas()).resolves.toEqual(['Italian']);
+  });
+
+  it('uses safe defaults when optional meal fields are absent', async () => {
+    mockFetch({ meals: [{ idMeal: '1' }] });
+
+    await expect(searchMeals('unknown')).resolves.toEqual([
+      {
+        id: '1',
+        source: 'api',
+        title: 'Untitled recipe',
+        image: '',
+        category: '',
+        cuisine: '',
+        ingredients: [],
+        instructions: [],
+      },
+    ]);
   });
 });

@@ -3,6 +3,7 @@ node_modules/
 .vercel/
 build/
 dist/
+coverage/
 www/
 .env
 .env.*
