@@ -9,6 +9,4 @@ www/
 .env.*
 !.env.example
 .DS_Store
-Planner.md
-Assigment.md
 PROJECT_WALKTHROUGH.md
